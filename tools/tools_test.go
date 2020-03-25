@@ -8,7 +8,6 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/configs"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/stretchr/testify/require"
@@ -71,22 +70,22 @@ func TestMoveFileDifferentDevices(t *testing.T) {
 	}
 }
 
-func TestStepmanJSONStepLibStepInfo(t *testing.T) {
-	// setup
-	require.NoError(t, configs.InitPaths())
+// func TestStepmanJSONStepLibStepInfo(t *testing.T) {
+// 	// setup
+// 	require.NoError(t, configs.InitPaths())
 
-	// Valid params -- Err should empty, output filled
-	require.Equal(t, nil, StepmanSetup("https://github.com/bitrise-io/bitrise-steplib"))
+// 	// Valid params -- Err should empty, output filled
+// 	require.Equal(t, nil, StepmanSetup("https://github.com/bitrise-io/bitrise-steplib"))
 
-	outStr, err := StepmanJSONStepLibStepInfo("https://github.com/bitrise-io/bitrise-steplib", "script", "0.9.0")
-	require.NoError(t, err)
-	require.NotEqual(t, "", outStr)
+// 	outStr, err := StepmanJSONStepLibStepInfo("https://github.com/bitrise-io/bitrise-steplib", "script", "0.9.0")
+// 	require.NoError(t, err)
+// 	require.NotEqual(t, "", outStr)
 
-	// Invalid params -- Err should empty, output filled
-	outStr, err = StepmanJSONStepLibStepInfo("https://github.com/bitrise-io/bitrise-steplib", "script", "2.x")
-	require.Error(t, err)
-	require.Equal(t, "", outStr)
-}
+// 	// Invalid params -- Err should empty, output filled
+// 	outStr, err = StepmanJSONStepLibStepInfo("https://github.com/bitrise-io/bitrise-steplib", "script", "2.x")
+// 	require.Error(t, err)
+// 	require.Equal(t, "", outStr)
+// }
 
 func TestEnvmanJSONPrint(t *testing.T) {
 	// Initialized envstore -- Err should empty, output filled
